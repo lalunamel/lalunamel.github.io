@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Index — Cody Sehl</title>
+<meta name="description" content="An index of Cody Sehl's projects published to GitHub Pages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f6f1e7'/><text y='.9em' x='50%25' text-anchor='middle' font-size='86' font-family='Georgia,serif' fill='%238c2f20'>I</text></svg>">
+<style>
+  :root{
+    --paper:#f6f1e7;
+    --paper-2:#efe8da;
+    --ink:#1c1a17;
+    --ink-2:#5b544a;
+    --muted:#8b8271;
+    --rule:#d7cebb;
+    --accent:#8c2f20;
+    --accent-2:#b0563f;
+    --grain:.055;
+    --accent-tint:#e3c4bb;
+    --shadow:rgba(28,26,23,.10);
+  }
+  :root:not([data-theme="light"]){
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12110f;
+      --paper-2:#1a1815;
+      --ink:#ece4d5;
+      --ink-2:#a79d8b;
+      --muted:#7d7566;
+      --rule:#2e2a24;
+      --accent:#d4694f;
+      --accent-2:#e08a6f;
+      --grain:.09;
+      --accent-tint:#4a2c23;
+      --accent-tint:#4a2c23;
+    --shadow:rgba(0,0,0,.5);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12110f;
+    --paper-2:#1a1815;
+    --ink:#ece4d5;
+    --ink-2:#a79d8b;
+    --muted:#7d7566;
+    --rule:#2e2a24;
+    --accent:#d4694f;
+    --accent-2:#e08a6f;
+    --grain:.09;
+    --accent-tint:#4a2c23;
+    --shadow:rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* paper grain */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none; z-index:9;
+    opacity:var(--grain);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) body::before{mix-blend-mode:screen} }
+  :root[data-theme="dark"] body::before{mix-blend-mode:screen}
+
+  a{color:inherit;text-decoration:none}
+
+  .sheet{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,64px);
+    display:grid;
+    grid-template-columns:minmax(240px,340px) 1fr;
+    gap:clamp(32px,6vw,88px);
+    align-items:start;
+  }
+
+  /* ── masthead ───────────────────────────── */
+  .masthead{
+    position:sticky; top:0;
+    max-height:100vh; overflow:visible;
+    padding:clamp(48px,9vh,104px) 0 40px;
+    min-height:min(100vh,820px);
+    display:flex; flex-direction:column;
+  }
+  .rule-v{
+    position:absolute; top:0; bottom:0; right:calc(clamp(32px,6vw,88px) / -2);
+    width:1px; background:var(--rule);
+  }
+  .eyebrow{
+    font-size:10.5px; letter-spacing:.34em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 22px;
+  }
+  h1{
+    font-family:"Fraunces",Georgia,"Times New Roman",serif;
+    font-variation-settings:"opsz" 144,"SOFT" 0,"WONK" 1;
+    font-weight:500;
+    font-size:clamp(72px,12vw,132px);
+    line-height:.82;
+    letter-spacing:-.035em;
+    margin:0 0 4px;
+  }
+  h1 .dot{color:var(--accent)}
+  .tagline{
+    font-family:"Fraunces",Georgia,serif;
+    font-variation-settings:"opsz" 14,"WONK" 1;
+    font-style:italic;
+    font-size:18px; line-height:1.45;
+    color:var(--ink-2);
+    margin:20px 0 0;
+    max-width:30ch;
+  }
+  .stats{
+    margin-top:auto;
+    padding-top:36px;
+    display:flex; flex-direction:column; gap:3px;
+    font-size:11.5px; letter-spacing:.06em; color:var(--muted);
+  }
+  .stats b{
+    font-weight:500; color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .search-wrap{margin-top:34px;position:relative}
+  .search{
+    width:100%;
+    background:transparent;
+    border:0; border-bottom:1px solid var(--rule);
+    padding:9px 34px 9px 0;
+    font:inherit; font-size:13px; color:var(--ink);
+    letter-spacing:.02em;
+    transition:border-color .25s;
+  }
+  .search::-webkit-search-cancel-button,.search::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+  .search::placeholder{color:var(--muted)}
+  .search:focus{outline:none;border-bottom-color:var(--accent)}
+  .slash{
+    position:absolute; right:0; top:8px;
+    font-size:10px; color:var(--muted);
+    border:1px solid var(--rule); border-radius:3px;
+    padding:1px 6px; pointer-events:none;
+    transition:opacity .2s;
+  }
+  .search:focus ~ .slash{opacity:0}
+  .theme-btn{
+    margin-top:20px;
+    align-self:flex-start;
+    background:none;border:0;padding:0;
+    font:inherit;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);cursor:pointer;
+    border-bottom:1px solid transparent;
+    transition:color .2s,border-color .2s;
+  }
+  .theme-btn:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  /* ── entries ────────────────────────────── */
+  .listing{padding:clamp(48px,9vh,104px) 0 0}
+  .sect{
+    display:flex; align-items:baseline; gap:16px;
+    margin:0 0 6px;
+  }
+  .sect + .sect{margin-top:72px}
+  .sect h2{
+    font-size:10.5px; font-weight:500;
+    letter-spacing:.32em; text-transform:uppercase;
+    color:var(--accent); margin:0;
+  }
+  .sect .hair{flex:1;height:1px;background:var(--rule)}
+  .sect .n{font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  .entry{
+    display:block;
+    position:relative;
+    isolation:isolate;
+    padding:24px 0 22px 0;
+    border-bottom:1px solid var(--rule);
+    opacity:0;
+    animation:rise .7s cubic-bezier(.2,.7,.25,1) forwards;
+    animation-delay:calc(var(--i) * 55ms + 120ms);
+  }
+  @keyframes rise{ from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+  @media (prefers-reduced-motion: reduce){
+    .entry{animation:none;opacity:1}
+    *{transition-duration:.01ms !important}
+  }
+  .entry::before{
+    content:"";
+    position:absolute; left:-24px; top:26px; bottom:24px;
+    width:2px; background:var(--accent);
+    transform:scaleY(0); transform-origin:top;
+    transition:transform .32s cubic-bezier(.2,.7,.25,1);
+  }
+  .entry:hover::before,.entry:focus-within::before{transform:scaleY(1)}
+  .name a{display:inline-block}
+  .name a::after{content:"";position:absolute;inset:0;z-index:1}
+  .name a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .meta a.repo{position:relative;z-index:2}
+
+  .row1{
+    display:flex; align-items:baseline; gap:14px;
+  }
+  .num{
+    font-size:11px; color:var(--ink-2);
+    font-variant-numeric:tabular-nums;
+    min-width:22px; padding-top:2px;
+    transition:color .25s;
+  }
+  .entry:hover .num{color:var(--accent)}
+  h3.name{margin:0;font-weight:500}
+  .name{
+    font-family:"Fraunces",Georgia,serif;
+    font-variation-settings:"opsz" 48,"SOFT" 20,"WONK" 1;
+    font-weight:500;
+    font-size:clamp(25px,3.1vw,34px);
+    line-height:1.05;
+    letter-spacing:-.02em;
+    white-space:nowrap;
+    transition:color .25s;
+  }
+  .entry:hover .name{color:var(--accent)}
+  .leader{
+    flex:1;
+    min-width:24px;
+    height:1px;
+    align-self:flex-end;
+    margin-bottom:7px;
+    background-image:linear-gradient(to right,var(--rule) 0 2px,transparent 2px 100%);
+    background-size:7px 1px;
+    background-repeat:repeat-x;
+    opacity:.9;
+  }
+  .year{
+    font-size:11px; color:var(--muted);
+    font-variant-numeric:tabular-nums;
+    letter-spacing:.08em;
+    white-space:nowrap;
+  }
+  .desc{
+    margin:9px 0 0; padding-left:36px;
+    font-family:"Fraunces",Georgia,serif;
+    font-variation-settings:"opsz" 14,"WONK" 0;
+    font-size:16px; color:var(--ink-2);
+    max-width:62ch;
+  }
+  .meta{
+    display:flex; flex-wrap:wrap; align-items:center;
+    gap:6px 16px;
+    margin-top:11px; padding-left:36px;
+    font-size:11.5px; letter-spacing:.04em;
+  }
+  .url{
+    font-size:13px;
+    color:var(--ink);
+    letter-spacing:0;
+    box-shadow:inset 0 -1px 0 var(--accent-tint);
+    padding-bottom:1px;
+    transition:color .22s,box-shadow .22s;
+    word-break:break-all;
+  }
+  .entry.down .url{color:var(--muted);box-shadow:none;text-decoration:line-through;text-decoration-color:var(--rule)}
+  .entry:hover .url{color:var(--accent);box-shadow:inset 0 -1px 0 var(--accent)}
+  .url .arrow{
+    display:inline-block;
+    margin-left:5px;
+    transform:translateX(-3px);
+    opacity:0;
+    transition:transform .28s cubic-bezier(.2,.7,.25,1),opacity .28s;
+  }
+  .entry:hover .url .arrow{transform:none;opacity:1}
+  .tag{
+    color:var(--muted);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .tag::before{
+    content:""; width:4px;height:4px;border-radius:50%;
+    background:var(--rule);
+  }
+  .repo{color:var(--muted);transition:color .22s;white-space:nowrap}
+  .repo:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .badge{
+    font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
+    border:1px solid var(--rule); border-radius:2px;
+    padding:2px 6px; color:var(--muted);
+  }
+  .badge.warn{color:var(--accent);border-color:var(--accent)}
+
+  .entry.down .name{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:var(--rule)}
+  .entry.down:hover .name{color:var(--accent-2)}
+
+  .empty{
+    padding:40px 0; color:var(--muted); font-size:13px;
+    display:none;
+  }
+  .empty.on{display:block}
+
+  .footwrap{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,64px);
+  }
+  footer{
+    margin-top:90px;
+    padding:30px 0 60px;
+    border-top:1px solid var(--rule);
+    display:flex; flex-wrap:wrap; gap:8px 28px;
+    font-size:11px; letter-spacing:.05em; color:var(--muted);
+  }
+  footer a{border-bottom:1px solid var(--rule);transition:color .2s,border-color .2s}
+  footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  @media (max-width:900px){
+    .sheet{grid-template-columns:1fr;gap:0}
+    .masthead{position:static;min-height:0;padding-bottom:0}
+    .rule-v{display:none}
+    .stats{margin-top:34px;padding-top:0}
+    .listing{padding-top:56px}
+    .entry::before{left:-14px}
+    .name{white-space:normal}
+    .leader{display:none}
+    .row1{flex-wrap:wrap;gap:6px 12px}
+    .num{order:0}
+    .year{order:1}
+    .name{order:2;flex-basis:100%}
+    .desc,.meta{padding-left:36px}
+  }
+  @media (max-width:520px){
+    .desc,.meta{padding-left:0}
+    .num{min-width:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="rule-v"></div>
+    <p class="eyebrow">Cody Sehl &nbsp;·&nbsp; lalunamel</p>
+    <h1>Index<span class="dot">.</span></h1>
+    <p class="tagline">Everything I&rsquo;ve put on the open web by way of GitHub&nbsp;Pages, and where it actually lives.</p>
+
+    <div class="search-wrap">
+      <input class="search" id="q" type="search" placeholder="Filter the index…" autocomplete="off" aria-label="Filter projects">
+      <span class="slash">/</span>
+    </div>
+
+    <button class="theme-btn" id="theme" type="button">Invert</button>
+
+    <div class="stats">
+      <span><b id="shown">12</b> <span id="noun">entries</span> &nbsp;·&nbsp; <b>10</b> live &nbsp;·&nbsp; <b>2</b> offline</span>
+      <span>Compiled 11 September 2026</span>
+    </div>
+  </header>
+
+  <main class="listing">
+
+    <div class="sect">
+      <h2>Live</h2>
+      <span class="hair"></span>
+      <span class="n">10</span>
+    </div>
+
+    <article class="entry" style="--i:0">
+      <div class="row1">
+        <span class="num">01</span>
+        <h3 class="name"><a href="https://lalunamel.github.io/nyc-neighborhood-map/">NYC Neighborhood Map</a></h3>
+        <span class="leader"></span>
+        <span class="year">2026</span>
+      </div>
+      <p class="desc">Interactive map for an NYC apartment search &mdash; rent, subway commute times, and street&#8209;tree canopy, layered together.</p>
+      <div class="meta">
+        <span class="url">lalunamel.github.io/nyc-neighborhood-map<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/nyc-neighborhood-map">&#8599;&nbsp;nyc-neighborhood-map</a>
+        <span class="tag">HTML</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:1">
+      <div class="row1">
+        <span class="num">02</span>
+        <h3 class="name"><a href="https://codysehl.net/">codysehl.net</a></h3>
+        <span class="leader"></span>
+        <span class="year">2020 &ndash; 2026</span>
+      </div>
+      <p class="desc">The current homepage. Gatsby, custom domain, still the front door.</p>
+      <div class="meta">
+        <span class="url">codysehl.net<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/codysehl.net-gatsby">&#8599;&nbsp;codysehl.net-gatsby</a>
+        <span class="tag">JavaScript</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:2">
+      <div class="row1">
+        <span class="num">03</span>
+        <h3 class="name"><a href="https://blog.codysehl.net/">Blog</a></h3>
+        <span class="leader"></span>
+        <span class="year">2013 &ndash; 2024</span>
+      </div>
+      <p class="desc">The long-running blog. Oldest repo in the index &mdash; started August 2013.</p>
+      <div class="meta">
+        <span class="url">blog.codysehl.net<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/blog">&#8599;&nbsp;blog</a>
+        <span class="tag">Stylus</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:3">
+      <div class="row1">
+        <span class="num">04</span>
+        <h3 class="name"><a href="https://lalunamel.github.io/youtube-playback-scrubber/">YouTube Playback Scrubber</a></h3>
+        <span class="leader"></span>
+        <span class="year">2025</span>
+      </div>
+      <p class="desc">A finer-grained scrubber for YouTube playback.</p>
+      <div class="meta">
+        <span class="url">lalunamel.github.io/youtube-playback-scrubber<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/youtube-playback-scrubber">&#8599;&nbsp;youtube-playback-scrubber</a>
+        <span class="tag">TypeScript</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:4">
+      <div class="row1">
+        <span class="num">05</span>
+        <h3 class="name"><a href="https://lalunamel.github.io/workout/">Workout</a></h3>
+        <span class="leader"></span>
+        <span class="year">2025</span>
+      </div>
+      <p class="desc">A workout tracker, built for one user in particular.</p>
+      <div class="meta">
+        <span class="url">lalunamel.github.io/workout<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/workout">&#8599;&nbsp;workout</a>
+        <span class="tag">TypeScript</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:5">
+      <div class="row1">
+        <span class="num">06</span>
+        <h3 class="name"><a href="https://filewatcher.codysehl.net/">FileWatcher</a></h3>
+        <span class="leader"></span>
+        <span class="year">2023</span>
+      </div>
+      <p class="desc">Marketing site for FileWatcher, the macOS app. Served from <code>/docs</code> on main.</p>
+      <div class="meta">
+        <span class="url">filewatcher.codysehl.net<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/FileWatcherSite">&#8599;&nbsp;FileWatcherSite</a>
+        <span class="tag">JavaScript</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:6">
+      <div class="row1">
+        <span class="num">07</span>
+        <h3 class="name"><a href="https://journal.codysehl.net/">Journal</a></h3>
+        <span class="leader"></span>
+        <span class="year">2018 &ndash; 2022</span>
+      </div>
+      <p class="desc">A programming journal &mdash; notes kept in public.</p>
+      <div class="meta">
+        <span class="url">journal.codysehl.net<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/journal">&#8599;&nbsp;journal</a>
+        <span class="tag">JavaScript</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:7">
+      <div class="row1">
+        <span class="num">08</span>
+        <h3 class="name"><a href="https://lalunamel.github.io/codysehl.net/">codysehl.net &mdash; the original</a></h3>
+        <span class="leader"></span>
+        <span class="year">2014 &ndash; 2020</span>
+      </div>
+      <p class="desc">The homepage that came before the Gatsby one. Repo is archived; the site is still up.</p>
+      <div class="meta">
+        <span class="url">lalunamel.github.io/codysehl.net<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/codysehl.net">&#8599;&nbsp;codysehl.net</a>
+        <span class="tag">HTML</span>
+        <span class="badge">Archived</span>
+      </div>
+    </article>
+
+    <article class="entry" style="--i:8">
+      <div class="row1">
+        <span class="num">09</span>
+        <h3 class="name"><a href="http://lalunamel.github.io/FunDesign/">2D Design</a></h3>
+        <span class="leader"></span>
+        <span class="year">2011 &ndash; 2012</span>
+      </div>
+      <p class="desc">Projects from Art 112, Fundamentals of 2D Design, at Knox College.</p>
+      <div class="meta">
+        <span class="url">lalunamel.github.io/FunDesign<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/FunDesign">&#8599;&nbsp;FunDesign</a>
+        <span class="tag">JavaScript</span>
+        
+      </div>
+    </article>
+
+    <article class="entry" style="--i:9">
+      <div class="row1">
+        <span class="num">10</span>
+        <h3 class="name"><a href="http://lalunamel.github.io/Dashboard-Website/">Dashboard</a></h3>
+        <span class="leader"></span>
+        <span class="year">2011 &ndash; 2012</span>
+      </div>
+      <p class="desc">&ldquo;Think sticky notes, but way cooler.&rdquo; The oldest thing still standing.</p>
+      <div class="meta">
+        <span class="url">lalunamel.github.io/Dashboard-Website<span class="arrow">&rarr;</span></span>
+        <a class="repo" href="https://github.com/lalunamel/Dashboard-Website">&#8599;&nbsp;Dashboard-Website</a>
+        <span class="tag">JavaScript</span>
+        
+      </div>
+    </article>
+
+    <div class="sect">
+      <h2>Offline</h2>
+      <span class="hair"></span>
+      <span class="n">2</span>
+    </div>
+
+    <article class="entry down" style="--i:10">
+      <div class="row1">
+        <span class="num">11</span>
+        <h3 class="name"><a href="https://github.com/lalunamel/iso8601">iso8601</a></h3>
+        <span class="leader"></span>
+        <span class="year">2019</span>
+      </div>
+      <p class="desc">A website to help with date math. Pages is still built, but the domain no longer resolves &mdash; point the DNS back and it returns.</p>
+      <div class="meta">
+        <span class="url">iso8601.codysehl.net</span>
+        <a class="repo" href="https://github.com/lalunamel/iso8601">&#8599;&nbsp;iso8601</a>
+        <span class="tag">JavaScript</span>
+        <span class="badge warn">DNS dead</span>
+      </div>
+    </article>
+
+    <article class="entry down" style="--i:11">
+      <div class="row1">
+        <span class="num">12</span>
+        <h3 class="name"><a href="https://github.com/lalunamel/isItFlunkDayYet">isItFlunkDayYet</a></h3>
+        <span class="leader"></span>
+        <span class="year">2013</span>
+      </div>
+      <p class="desc">An easy way to tell if it&rsquo;s Flunk Day. The domain has lapsed.</p>
+      <div class="meta">
+        <span class="url">isitflunkdayyet.com</span>
+        <a class="repo" href="https://github.com/lalunamel/isItFlunkDayYet">&#8599;&nbsp;isItFlunkDayYet</a>
+        <span class="tag">JavaScript</span>
+        <span class="badge warn">Domain lapsed</span>
+      </div>
+    </article>
+
+    <p class="empty" id="empty">Nothing in the index matches that.</p>
+
+  </main>
+
+</div>
+
+<div class="footwrap">
+  <footer>
+    <span>Every public repo of mine with GitHub Pages turned on.</span>
+    <a href="https://github.com/lalunamel?tab=repositories">All repositories &rarr;</a>
+    <a href="https://github.com/lalunamel/lalunamel.github.io">Source of this page &rarr;</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var stored = null;
+  try { stored = localStorage.getItem('index-theme'); } catch(e){}
+  if (stored === 'light' || stored === 'dark') root.setAttribute('data-theme', stored);
+
+  document.getElementById('theme').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('index-theme', next); } catch(e){}
+  });
+
+  var q = document.getElementById('q');
+  var entries = Array.prototype.slice.call(document.querySelectorAll('.entry'));
+  var sects = Array.prototype.slice.call(document.querySelectorAll('.sect'));
+  var empty = document.getElementById('empty');
+  var shown = document.getElementById('shown');
+
+  entries.forEach(function(el){ el.dataset.hay = el.textContent.toLowerCase().replace(/\s+/g,' '); });
+
+  function filter(){
+    var term = q.value.trim().toLowerCase();
+    var n = 0;
+    entries.forEach(function(el){
+      var hit = !term || el.dataset.hay.indexOf(term) !== -1;
+      el.hidden = !hit;
+      if (hit) n++;
+    });
+    // hide a section header when everything under it is hidden
+    sects.forEach(function(s){
+      var c = 0, el = s.nextElementSibling;
+      while (el && el.classList.contains('entry')) { if (!el.hidden) c++; el = el.nextElementSibling; }
+      s.hidden = c === 0;
+      s.querySelector('.n').textContent = c;
+    });
+    empty.classList.toggle('on', n === 0);
+    shown.textContent = n;
+    document.getElementById('noun').textContent = n === 1 ? 'entry' : 'entries';
+  }
+
+  q.addEventListener('input', filter);
+  q.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ q.value=''; filter(); q.blur(); } });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === '/' && document.activeElement !== q){ e.preventDefault(); q.focus(); }
+  });
+})();
+</script>
+
+</body>
+</html>
